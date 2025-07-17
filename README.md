@@ -72,18 +72,18 @@ No description provided.
 ## 🛠️ Tech Stack
 
 <div align="center">
-  ![Java](https://img.shields.io/badge/Java-50.1%25-ED8B00?style=for-the-badge&logo=java&logoColor=white) ![HTML](https://img.shields.io/badge/HTML-49.9%25-E34F26?style=for-the-badge&logo=html&logoColor=white)
+  <a href="https://www.java.com">
+    <img src="https://badgen.net/badge/Java/50.1%25/ED8B00?icon=java" alt="Java Badge">
+  </a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/HTML">
+    <img src="https://badgen.net/badge/HTML/49.9%25/E34F26?icon=html5" alt="HTML Badge">
+  </a>
 </div>
+
 
 
 ## 🎯 Getting Started
 
-### Prerequisites
-
-Make sure you have the following installed:
-
-- ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) `v16+`
-- ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white) `v8+`
 
 ### 🔧 Installation
 
