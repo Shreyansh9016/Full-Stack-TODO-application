@@ -1,12 +1,13 @@
-HELP.md
+# Ignore compiled classes and target
 target/
-.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-# Don't commit real credentials
-src/main/resources/application.properties
+# Maven Wrapper JAR
+.mvn/wrapper/maven-wrapper.jar
 
+# Ignore sensitive application config
+src/main/resources/application.properties
 
 ### STS ###
 .apt_generated
