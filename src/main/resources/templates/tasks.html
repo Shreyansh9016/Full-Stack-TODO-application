@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f3f0e7;
+            font-family: "Georgia", "Times New Roman", serif;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .todo-card {
+            border: 1px solid #ddd;
+            border-left: 4px solid #6c757d;
+            background-color: #fffef9;
+            transition: transform 0.2s ease-in-out, box-shadow 0.3s;
+            border-radius: 10px;
+        }
+
+        .todo-card:hover {
+            transform: scale(1.005);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .task-title {
+            font-size: 1.15rem;
+            color: #444;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #aaa;
+            font-style: italic;
+        }
+
+        .form-control-lg {
+            border-radius: 0.75rem;
+        }
+
+        .btn-success {
+            border-radius: 0.75rem;
+            padding: 0.5rem 1.5rem;
+        }
+
+        .btn-outline-danger {
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-check-input {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-5">📝 Todo Application</h1>
+
+    <!-- Add Task Form -->
+    <form action="/tasks" method="post" class="input-group mb-5 shadow-sm">
+        <input type="text" name="title" class="form-control form-control-lg"
+               placeholder="What do you need to do?" required>
+        <button type="submit" class="btn btn-success btn-lg">Add</button>
+    </form>
+
+    <!-- Task List -->
+    <div class="row g-4">
+        <th:block th:each="task : ${tasks}">
+            <div class="col-12">
+                <div class="card todo-card shadow-sm p-3 px-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input me-3" type="checkbox"
+                                   th:checked="${task.completed}"
+                                   th:onclick="'window.location.href=\'/tasks/' + ${task.id} + '/toggle\''">
+                            <label th:text="${task.title}"
+                                   th:classappend="${task.completed} ? 'task-title completed' : 'task-title'"
+                                   class="form-check-label">
+                                Task Title
+                            </label>
+                        </div>
+                        <a th:href="@{/tasks/{id}/delete(id=${task.id})}"
+                           class="btn btn-outline-danger btn-sm" title="Delete Task">🗑️</a>
+                    </div>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
+</body>
+</html>
